@@ -1,79 +1,124 @@
-from urllib import parse
-from selenium import webdriver
-from selenium.webdriver.firefox.options import Options
-from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
-from selenium.webdriver.common.by import By
-import time
-import requests
-import os
+import streamlit as st
+import numpy as np
+import pandas as pd
+from st_aggrid import AgGrid, DataReturnMode, GridUpdateMode, GridOptionsBuilder
+from pdf_parse import *
+from paper_get import *
 
-def down_load_paper(title, url):
-    response = requests.get(url, stream=True)
-    #title = "./output/paper/" + title
-    # 检查响应状态码是否为200，表示请求成功
-    if response.status_code == 200:
-        # 以二进制写入模式打开文件
-        with open("./output/paper/" + title, 'wb') as f:
-            for chunk in response.iter_content(chunk_size=1024):
-                f.write(chunk)
-            print('PDF 文件已下载到本地')
+def aggrid(df):
+    gb = GridOptionsBuilder.from_dataframe(df)
+    selection_mode = 'multiple' # 定义单选模式，多选为'multiple'
+    enable_enterprise_modules = True # 设置企业化模型，可以筛选等
+    #gb.configure_default_column(editable=True) #定义允许编辑
+    
+    return_mode_value = DataReturnMode.FILTERED  #__members__[return_mode]
+    gb.configure_selection(selection_mode, use_checkbox=True) # 定义use_checkbox
+    
+    gb.configure_side_bar()
+    gb.configure_grid_options(domLayout='normal')
+    gb.configure_pagination(paginationAutoPageSize=False, paginationPageSize=10)
+    #gb.configure_default_column(editable=True, groupable=True)
+    gridOptions = gb.build()
+    
+    update_mode_value = GridUpdateMode.MODEL_CHANGED
+    
+    grid_response = AgGrid(
+                        df, 
+                        gridOptions=gridOptions,
+                        fit_columns_on_grid_load = True,
+                        data_return_mode=return_mode_value,
+                        update_mode=update_mode_value,
+                        enable_enterprise_modules=enable_enterprise_modules,
+                        theme='streamlit'
+                        )  
+    #df = grid_response['data']
+    selected = grid_response['selected_rows']
+    ret_list = []
+    if len(selected) == 0:
+        return -1
     else:
-        print('请求失败')
+        for i in range(0, len(selected)):
+            ret_list.append(selected[i]['Reference'])  
+        return ret_list
 
+def list_to_df(list_t):
+    df = pd.DataFrame(np.array(list_t))
+    df.columns = ['Reference']
+    return df
 
-def paperUrl(name):
-    q = name
-    params = {
-        'q':q
-    }
-    params = parse.urlencode(params)
-    url = "https://sc.panda321.com/scholar?" + params
-    return url
+def init():
+    if "upload_file" not in st.session_state:
+        st.session_state.upload_file = None
+    if "references" not in st.session_state:
+        st.session_state.references = None 
+    if "bibtex" not in st.session_state:
+        st.session_state.bibtex = None
+    if "select_references" not in st.session_state:
+        st.session_state.select_references = None
+    return
 
-
-def getBib(url):
-    options = Options()
-    options.add_argument('-headless')
-    desired_capabilities = DesiredCapabilities.FIREFOX
-    desired_capabilities["pageLoadStrategy"] = "none"
-    print(1)
-    driver = webdriver.Firefox(options=options)
-    driver.get(url)
-    driver.find_element(By.CLASS_NAME, 'gs_or_cit.gs_nph').click()
-    print(2)
-    time.sleep(4)
-    pdf_url = ""
-    for link in driver.find_elements(By.XPATH, "//*[@href]"):
-        len_href = len(link.get_attribute('href'))
-        if link.get_attribute('href')[len_href - 3: len_href] == "pdf":
-            pdf_url = link.get_attribute('href')
+def callback():
+    if st.session_state.upload_file == None:
+        return
+    bytes_data = st.session_state.upload_file.getvalue()
+    fp = open("./output/input.pdf", "wb")
+    fp.write(bytes_data)
+    fp.close()
+    st.session_state.upload_file = None
+    get_references("./output/input.pdf")
+    reference_list = []
+    fp = open("./output/tmp_output", "r")
+    fp.readline()
+    while True:
+        line = fp.readline()
+        if not line:
             break
-    print(pdf_url)
-    s = driver.find_element(By.CLASS_NAME, 'gs_citi')
-    if s.text == 'BibTeX':
-        hr = s.get_attribute('href')
-    driver.get(hr)
-    bib = driver.find_element(By.XPATH, "//*").text
-    driver.quit()
-    return bib, pdf_url
+        if line[len(line) - 1] == "\n":
+            line = line[0: len(line) - 1]
+        reference_list.append(line)
+    st.session_state.references = reference_list
 
+def callback2():
+    st.session_state.bibtex = None
+    st.session_state.bibtex = []
+    if st.session_state.select_references == -1:
+        return
+    for i in range(0, len(st.session_state.select_references)):
+        q = st.session_state.select_references[i]
+        print(q)
+        try:
+            bib = down_reference(q)
+            st.session_state.bibtex.append(bib)
+        except:
+            for count in range(0, 3):
+                try:
+                    bib = down_reference(q)
+                    break
+                except:
+                    print("[-] falied " + str(count + 1))
+                    continue
+            if count == 3:
+                st.session_state.bibtex.append("Download failed: " + st.session_state.select_references[i])
+            else:
+                st.session_state.bibtex.append(bib)
+def main():
+    init()
+    st.text("Upload the paper...")
+    st.session_state.upload_file = st.file_uploader(label="", type="pdf")
+    st.button(label="进行解析", on_click=callback)
+    if st.session_state.references != None:
+        st.session_state.select_references = aggrid(list_to_df(st.session_state.references))
+        st.button(label="Download Reference", on_click=callback2)
+        if st.session_state.bibtex != None:
+            for i in range(0, len(st.session_state.select_references)):
+                with st.expander(st.session_state.select_references[i]):
+                    st.code(st.session_state.bibtex[i])
 
-q = "[54] Yue Zou, Bihuan Ban, Yinxing Xue, and Yun Xu. 2020. CCGraph: A PDG-basedCode Clone Detector with Approximate Graph Matching. In Proceedings of the35th International Conference on Automated Software Engineering (ASE’20). 931–942.Received 2023-02-16; accepted 2023-05-03"
-
-url = paperUrl(q)
-bib, pdf_url = getBib(url)
-print(bib)
-title = ""
-cur = 0
-while cur + 4 < len(bib):
-    if (bib[cur: cur + 5].lower() == "title"):
-        head = cur
-        while bib[head] != "{":
-            head += 1
-        tail = head + 1
-        while bib[tail] != "}":
-            tail += 1
-        title = bib[head + 1: tail]
-        break
-    cur += 1
-down_load_paper(title + ".pdf", pdf_url)
+if __name__ == "__main__":
+    st.set_page_config(
+        "论文文献自动下载器",
+        "📊",
+        initial_sidebar_state="expanded",
+        layout="wide",
+    )
+    main()

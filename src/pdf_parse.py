@@ -52,7 +52,5 @@ def get_references(paper_name, target_str="references"):
         write_line = write_data[cur: tail]
         file.write(write_line + "\n")
         cur = tail
-
+    
     file.close()
-
-get_references("/Users/haoranyan/git_rep/auto_references_get/test/Tamer.pdf")

@@ -1,0 +1,56 @@
+References
+[1] 2022. Ambient Software Evolution Group: IJaDataset 2.0. http://secold.org/projects/seclone.
+[2] 2022. BigCloneBench. https://github.com/clonebench/BigCloneBench.
+[3] 2022. Blackducks. https://www.blackducksoftware.com.
+[4] 2022. CLOC: Count lines of code. http://cloc.sourceforge.net.
+[5] 2022. Fossid. https://fossid.com.
+[6] 2022. Google Code Jam. https://code.google.com/codejam/contests.html.
+[7] 2022. Javaparser. https://github.com/javaparser/javaparser.
+[8] 2022. Nvidia. https://www.nvidia.com..
+[9] 2022. Pycparser. https://github.com/eliben/pycparser.
+[10] 2022. Scantist. https://scantist.com.
+[11] 2023. Tamer. https://github.com/CGCL-codes/Tamer.
+[12] Raihan Al-Ekram, Cory Kapser, Richard Holt, and Michael Godfrey. 2005. Cloningby Accident: An Empirical Study of Source Code Cloning across Software Sys-tems. In Proceedings of the 6th International Symposium on Empirical SoftwareEngineering (ESEM’05). 10–pp.
+[13] Nghi DQ Bui, Yijun Yu, and Lingxiao Jiang. 2021. Infercode: Self-supervisedLearning of Code Representations by Predicting Subtrees. In Proceedings of the43rd International Conference on Software Engineering (ICSE’21). 1186–1197.
+[14] Yingnong Dang, Dongmei Zhang, Song Ge, Chengyun Chu, Yingjun Qiu, andTao Xie. 2012. XIAO: Tuning Code Clones at Hands of Engineers in Practice.In Proceedings of the 28th Annual Computer Security Applications Conference(ACSAC’12). 369–378.
+[15] Chunrong Fang, Zixi Liu, Yangyang Shi, Jeff Huang, and Qingkai Shi. 2020.Functional Code Clone Detection with Syntax and Semantics Fusion Learning.In Proceedings of the 29th SIGSOFT International Symposium on Software Testingand Analysis (ISSTA’20). 516–527.
+[16] Jeanne Ferrante, Karl J Ottenstein, and Joe D. Warren. 1987. The Program De-pendence Graph and Its Use in Optimization. ACM Transactions on ProgrammingLanguages and Systems 9, 3 (1987), 319–349.
+[17] Mohammad Gharehyazie, Baishakhi Ray, and Vladimir Filkov. 2017. Some fromHere, Some from There: Cross-project Code Reuse in Github. In Proceedings of the14th International Conference on Mining Software Repositories (MSR’17). 291–301.
+[18] Nils Göde and Rainer Koschke. 2009. Incremental Clone Detection. In Proceedingsof the 13th European Conference on Software Maintenance and Reengineering(CSMR’09). 219–228.
+[19] Yaroslav Golubev, Viktor Poletansky, Nikita Povarov, and Timofey Bryksin.2021. Multi-threshold Token-based Code Clone Detection. In Proceedings ofthe 28th International Conference on Software Analysis, Evolution and Reengineer-ing (SANER’21). 496–500.
+[20] Mark Harris, Shubhabrata Sengupta, and John D. Owens. 2007. Parallel PrefixSum (scan) with CUDA. GPU gems 3, 39 (2007), 851–876.
+[21] Wei Hua, Yulei Sui, Yao Wan, Guangzhong Liu, and Guandong Xu. 2020. Fcca:Hybrid Code Representation for Functional Clone Detection Using AttentionNetworks. IEEE Transactions on Reliability 70, 1 (2020), 304–318.
+[22] Yu-Liang Hung and Shingo Takada. 2020. CPPCD: A Token-Based Approach toDetecting Potential Clones. In Proceedings of the 14th International Workshop onSoftware Clones (IWSC’20). 26–32.
+[23] Tomoya Ishihara, Keisuke Hotta, Yoshiki Higo, Hiroshi Igaki, and ShinjiKusumoto. 2012.Inter-project Functional Clone Detection toward BuildingLibraries-an empirical Study on 13,000 Projects. In Proceedings of the 19th Work-ing Conference on Reverse Engineering (WCRE’12). 387–391.
+[24] Yue Jia, David Binkley, Mark Harman, Jens Krinke, and Makoto Matsushita.2009. KClone: A Proposed Approach to Fast Precise Code Clone Detection. InProceedings of the 3rd International Workshop on Detection of Software Clones(IWSC’09).
+[25] Lingxiao Jiang, Ghassan Misherghi, Zhendong Su, and Stephane Glondu. 2007.Deckard: Scalable and Accurate Tree-based Detection of Code Clones. In Pro-ceedings of the 29th International Conference on Software Engineering (ICSE’07).96–105.
+[26] Young-Bin Jo, Jihyun Lee, and Cheol-Jung Yoo. 2021. Two-Pass Technique forClone Detection and Type Classification Using Tree-Based Convolution NeuralNetwork. Applied Sciences 11, 14 (2021), 6613.ISSTA ’23, July 17–21, 2023, Seattle, WA, United States
+[27] Toshihiro Kamiya. 2021. Ccfinderx: An Interactive Code Clone Analysis Envi-ronment. (2021), 31–44.
+[28] Toshihiro Kamiya, Shinji Kusumoto, and Katsuro Inoue. 2002. CCFinder: AMultilinguistic Token-based Code Clone Detection System for Large Scale SourceCode. IEEE Transactions on Software Engineering 28, 7 (2002), 654–670.
+[29] Raghavan Komondoor and Susan Horwitz. 2001. Using Slicing to Identify Du-plication in Source Code. In Proceedings of the 8th International Static AnalysisSymposium (SAS’01). 40–56.
+[30] Rainer Koschke. 2007. Survey of Research on Software Clones. In Proceedings ofthe 5th Dagstuhl Seminar Proceedings (DROPS’07).
+[31] Jens Krinke. 2001. Identifying Similar Code With Program Dependence Graphs.In Proceedings of the 8th Working Conference on Reverse Engineering (WCRE’01).301–309.
+[32] Liuqing Li, He Feng, Wenjie Zhuang, Na Meng, and Barbara Ryder. 2017.Cclearner: A Deep Learning-based Clone Detection Approach. In Proceedingsof the 33rd International Conference on Software Maintenance and Evolution (IC-SME’17). 249–260.
+[33] Hongliang Liang and Lu Ai. 2021. AST-path Based Compare-Aggregate Networkfor Code Clone Detection. In Proceedings of the 28th International Joint Conferenceon Neural Networks (IJCNN’21). 1–8.
+[34] Manishankar Mondal, Chanchal K. Roy, and Kevin A. Schneider. 2017. Doescloned code increase maintenance effort?. In Proceedings of the 11th InternationalWorkshop on Software Clones (IWSC’17). 1–7.
+[35] Tasuku Nakagawa, Yoshiki Higo, and Shinji Kusumoto. 2021. NIL: Large-scaleDetection of Large-variance Clones. In Proceedings of the 29th Joint Meeting onEuropean Software Engineering Conference and Symposium on the Foundations ofSoftware Engineering (FSE’21). 830–841.
+[36] Chaiyong Ragkhitwetsagul and Jens Krinke. 2019. Siamese: Scalable and Incre-mental Code Clone Search via Multiple Code Representations. Empirical SoftwareEngineering 24, 4 (2019), 2236–2284.
+[37] Chanchal Kumar Roy and James R. Cordy. 2007. A Survey On Software CloneDetection Research. Queen’s School of computing TR 541, 115 (2007), 64–68.
+[38] Chanchal K. Roy and James R. Cordy. 2008. NICAD: Accurate Detection of Near-miss Intentional Clones Using Flexible Pretty-printing and Code Normalization.In Proceedings of the 16th International Conference on Program Comprehension(ICPC’08). 172–181.
+[39] Hitesh Sajnani, Vaibhav Saini, Jeffrey Svajlenko, Chanchal K. Roy, and Cristina V.Lopes. 
+[n. d.]. SourcererCC: Scaling Code Clone Detection to Big Code. In Pro-ceedings of the 38th International Conference on Software Engineering (ICSE’15).1157–1168.
+[40] Nino Shervashidze, Pascal Schweitzer, Erik Jan Van Leeuwen, Kurt Mehlhorn,and Karsten M. Borgwardt. 2011. Weisfeiler-lehman Graph Kernels. Journal ofMachine Learning Research 12, 9 (2011).
+[41] Jeffrey Svajlenko and Chanchal K. Roy. 2017. CloneWorks: A Fast and FlexibleLarge-scale Near-miss Clone Detection Tool. In Proceedings of the 39th Interna-tional Conference on Software Engineering (ICSE’17). 177–179.
+[42] Jeffrey Svajlenko and Chanchal K. Roy. 2019. The Mutation and Injection Frame-work: Evaluating Clone Detection Tools with Mutation Analysis. IEEE Transac-tions on Software Engineering 47, 5 (2019), 1060–1087.
+[43] Min Wang, Pengcheng Wang, and Yun Xu. 2017. CCSharp: An Efficient Three-phase Code Clone Detector Using Modified PDGs. In Proceedings of the 24thAsia-Pacific Software Engineering Conference (APSEC’17). 100–109.
+[44] Pengcheng Wang, Jeffrey Svajlenko, Yanzhao Wu, Yun Xu, and Chanchal K. Roy.2018. CCAligner: A Token Based Large-gap Clone Detector. In Proceedings of the40th International Conference on Software Engineering (ICSE’18). 1066–1077.
+[45] Tiantian Wang, Mark Harman, Yue Jia, and Jens Krinke. 2013. Searching forBetter Configurations: A Rigorous Approach to Clone Evaluation. In Proceedingsof the 9th Joint Meeting on Foundations of Software Engineering (FSE’13). 455–465.
+[46] Wenhan Wang, Ge Li, Bo Ma, Xin Xia, and Zhi Jin. 2020. Detecting Code Cloneswith Graph Neural Network and Flow-augmented Abstract Syntax Tree. InProceedings of the 27th International Conference on Software Analysis, Evolutionand Reengineering (SANER’20). 261–271.
+[47] Xiao Wang, Qiong Wu, Hongyu Zhang, Chen Lyu, Xue Jiang, Zhuoran Zheng,Lei Lyu, and Songlin Hu. 2022. Heloc: Hierarchical contrastive learning of sourcecode representation. In Proceedings of the 30th International Conference on ProgramComprehension (ICPC’22). 354–365.
+[48] Huihui Wei and Ming Li. 2017. Supervised Deep Features for Software FunctionalClone Detection by Exploiting Lexical and Syntactical Information in Source Code.In Proceedings of the 26th International Joint Conferences on Artificial IntelligenceOrganization (IJCAI’17). 3034–3040.
+[49] Ming Wu, Pengcheng Wang, Kangqi Yin, Haoyu Cheng, Yun Xu, and Chanchal K.Roy. 2020. LVMapper: A Large-variance Clone Detector Using SequencingAlignment Approach. IEEE Access 8 (2020), 27986–27997.
+[50] Yueming Wu, Deqing Zou, Shihan Dou, Siru Yang, Wei Yang, Feng Cheng, HongLiang, and Hai Jin. 2020. SCDetector: Software Functional Clone Detection Basedon Semantic Tokens Analysis. In Proceedings of the 35th International Conferenceon Automated Software Engineering (ASE’20). 821–833.
+[51] Yanming Yang, Zhilei Ren, Xin Chen, and He Jiang. 2018. Structural FunctionBased Code Clone Detection Using a New Hybrid Technique. In Proceedings ofthe 42nd Annual Computer Software and Applications Conference (COMPSAC’18),Vol. 1. 286–291.
+[52] Jian Zhang, Xu Wang, Hongyu Zhang, Hailong Sun, Kaixuan Wang, and XudongLiu. 2019. A Novel Neural Source Code Representation Based on Abstract SyntaxTree. In Proceedings of the 41st International Conference on Software Engineering(ICSE’19). 783–794.
+[53] Gang Zhao and Jeff Huang. 2018. Deepsim: Deep Learning Code Functional Sim-ilarity. In Proceedings of the 26th Joint Meeting on European Software EngineeringConference and Symposium on the Foundations of Software Engineering (FSE’18).141–151.
+[54] Yue Zou, Bihuan Ban, Yinxing Xue, and Yun Xu. 2020. CCGraph: A PDG-basedCode Clone Detector with Approximate Graph Matching. In Proceedings of the35th International Conference on Automated Software Engineering (ASE’20). 931–942.Received 2023-02-16; accepted 2023-05-03

@@ -90,7 +90,8 @@ def callback2():
             bib = down_reference(q)
             st.session_state.bibtex.append(bib)
         except:
-            for count in range(0, 3):
+            count = 0
+            while count < 3:
                 try:
                     bib = down_reference(q)
                     break

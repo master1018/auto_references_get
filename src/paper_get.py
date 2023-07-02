@@ -39,6 +39,7 @@ def getBib(url):
     desired_capabilities["pageLoadStrategy"] = "none"
     driver = webdriver.Firefox(options=options)
     driver.get(url)
+    time.sleep(5)
     driver.find_element(By.CLASS_NAME, 'gs_or_cit.gs_nph').click()
     time.sleep(5)
     pdf_url = ""

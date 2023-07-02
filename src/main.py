@@ -96,7 +96,8 @@ def callback2():
                     bib = down_reference(q)
                     break
                 except:
-                    print("[-] falied " + str(count + 1))
+                    count += 1
+                    print("[-] falied " + str(count))
                     continue
             if count == 3:
                 st.session_state.bibtex.append("Download failed: " + st.session_state.select_references[i])

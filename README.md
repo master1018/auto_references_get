@@ -15,4 +15,6 @@
 
 脚本使用的是Firefox浏览器，需要安装（当然也可以自己修改代码，使用其他浏览器兼容）
 
+经过验证，发现频繁使用一个IP可能会出现问题（被ban）
+
 参考blog:https://master1018.github.io/2023/07/01/Python%E6%90%AD%E5%BB%BA%E6%96%87%E7%8C%AE%E8%87%AA%E5%8A%A8%E8%8E%B7%E5%8F%96%E8%84%9A%E6%9C%AC/
